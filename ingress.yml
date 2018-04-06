@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: skelet
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  tls:
+    - hosts:
+      - finskasauna.viaaurea.local
+  rules:
+  - host: finskasauna.viaaurea.local
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: skelet
+          servicePort: 80
